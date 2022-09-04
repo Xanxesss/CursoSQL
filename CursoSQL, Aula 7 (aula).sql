@@ -1,4 +1,4 @@
--- Curso de SQL, Aula 6 --
+-- Curso de SQL, Aula 7 --
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -33,8 +33,8 @@ CREATE TABLE cidade(
 );
 
 -- inserindo registros na tabela estado
-INSERT INTO estado (id_estado, nome, sigla, ativo, data_cadastro) VALUES (DEFAULT, "Parana", 'PR', 'S', '2020-09-03');
-INSERT INTO estado (id_estado, nome, sigla, ativo, data_cadastro) VALUES (DEFAULT, "Sao Paulo", 'sp', DEFAULT, DEFAULT);
+INSERT INTO estado (id_estado, nome, sigla, ativo, data_cadastro) VALUES (DEFAULT, "Paraná", 'PR', 'N', '2020-09-03');
+INSERT INTO estado (id_estado, nome, sigla, ativo, data_cadastro) VALUES (DEFAULT, "São Paulo", 'SP', DEFAULT, DEFAULT);
 INSERT INTO estado (nome, sigla) VALUES ("Ceará", 'CE');
 
 -- inserindo registros na tabela cidade
@@ -42,15 +42,32 @@ INSERT INTO cidade (id_cidade, nome, ativo, data_cadastro, id_estado) VALUES (DE
 INSERT INTO cidade (id_cidade, nome, ativo, data_cadastro, id_estado) VALUES (DEFAULT, "São Paulo", DEFAULT, DEFAULT, 2);
 INSERT INTO cidade (nome, id_estado) VALUES ("Fortaleza", 3);
 
--- editando registros da tabela estado
-UPDATE estado SET nome = "Paraná" WHERE id_estado = 1;
-UPDATE estado SET nome = "São Paulo", sigla = 'SP' WHERE nome = "Sao Paulo";
-UPDATE estado SET ativo = 'N' WHERE nome = "Ceará";
+-- consultando registros com colunas personalizadas
+SELECT
+	id_estado AS "ID do Estado",
+    nome AS "Nome do Estado",
+    sigla AS "Sigla do Estado",
+    data_cadastro AS "Data de Cadastro"
+FROM
+	estado;
+    
+-- consultando registros especificando a tabela
+SELECT
+	estado.id_estado,
+    estado.nome,
+    estado.sigla,
+    estado.data_cadastro
+FROM
+	estado;
 
--- excluindo registro da tabela estado e cidade
-DELETE FROM cidade WHERE id_estado = 3;
-DELETE FROM estado WHERE id_estado = 3;
-
--- consultando os registros nas tabelas
-SELECT * FROM estado;
-SELECT * FROM cidade;
+-- consultando registros especificando condições
+SELECT
+	id_estado,
+    nome,
+    sigla,
+    ativo,
+    data_cadastro
+FROM
+	estado
+WHERE
+    ativo = 'N';
