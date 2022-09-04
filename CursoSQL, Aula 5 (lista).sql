@@ -46,7 +46,7 @@ INSERT INTO estado (nome, sigla) VALUES ("Pará", 'PA');
 INSERT INTO estado (nome, sigla) VALUES ("Minas Gerais", 'MG');
 
 -- 08.
-INSERT INTO cidade (id_cidade, nome, ativo, data_cadastro, id_estado) VALUES (1, "Paranvaí", 'PR', 'S', '2020-09-03', 1);
+INSERT INTO cidade (id_cidade, nome, ativo, data_cadastro, id_estado) VALUES (1, "Paranvaí", 'S', '2020-09-03', 1);
 INSERT INTO cidade (nome, ativo, data_cadastro, id_estado) VALUES ("Salvador", 'S', '2020-09-03', 4);
 INSERT INTO cidade (nome, id_estado) VALUES ("Ouro Preto", 7);
 
